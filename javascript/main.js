@@ -47,7 +47,7 @@ SoundCouldAPI.renderTracks = function(tracks) {
         var header = document.createElement("div");
         header.classList.add("header");
         var a = document.createElement("a");
-        a.href = "https://soundcloud.com/barsuk-records/rilo-kiley-science-vs-romance";
+        a.href = track.permalink_url;
         a.target = "_blank";
         a.innerHTML = track.title;
         header.appendChild(a);
@@ -57,6 +57,10 @@ SoundCouldAPI.renderTracks = function(tracks) {
         // adding button
         var button = document.createElement("div");
         button.classList.add("ui", "bottom", "attached", "button", "js-button");
+        button.addEventListener('click', function(){
+            SoundCouldAPI.getEmbed(track.permalink_url);
+        });
+
         var icon = document.createElement("i");
         icon.classList.add("add", "icon");
         button.appendChild(icon);
@@ -72,5 +76,16 @@ SoundCouldAPI.renderTracks = function(tracks) {
     
 }
 
+/* Add to the playlist and play */
+SoundCouldAPI.getEmbed = function(trackURL)  {
+    // console.log("click");
+    SC.oEmbed(trackURL, {
+        auto_play: true
+    }).then(function(embed){
+        console.log('oEmbed response: ', embed);
 
-/* Add to the playlist */
+        var sideBar = document.querySelector('.js-playlist');
+        sideBar.innerHTML = embed.html;
+
+    });
+}

@@ -1,5 +1,28 @@
 /* Search */
 
+var button = document.querySelector(".js-submit");
+button.addEventListener('click', function(){
+    var input = document.querySelector("input").value;
+    
+    /* clear previous results */
+    var searchResults = document.querySelector(".js-search-results");
+    searchResults.innerHTML = "";
+    
+    SoundCouldAPI.getTrack(input.value);
+});
+
+document.querySelector(".js-search").addEventListener('keyup', function(e){
+    var input = document.querySelector("input").value;
+
+    // if the key ENTER is pressed ...
+    if(e.which === 13)    {
+        /* clear previous results */
+        var searchResults = document.querySelector(".js-search-results");
+        searchResults.innerHTML = "";
+        
+        SoundCouldAPI.getTrack(input.value);
+    }
+});
 
 /* Query SoundCloud API */
 
@@ -17,7 +40,6 @@ SoundCouldAPI.getTrack = function(inputValue) {
     SC.get('/tracks', {
         q: inputValue
     }).then(function(tracks) {
-        console.log(tracks);
         SoundCouldAPI.renderTracks(tracks);
     });
 }
@@ -82,8 +104,6 @@ SoundCouldAPI.getEmbed = function(trackURL)  {
     SC.oEmbed(trackURL, {
         auto_play: true
     }).then(function(embed){
-        console.log('oEmbed response: ', embed);
-
         var sideBar = document.querySelector('.js-playlist');
         
         var box = document.createElement('div');

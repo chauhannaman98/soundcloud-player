@@ -37,7 +37,6 @@ SoundCouldAPI.init = function() {
 SoundCouldAPI.init();
  
 SoundCouldAPI.getTrack = function(inputValue) {
-    console.log(inputValue);
     SC.get('/tracks', {
         q: inputValue
     }).then(function(tracks) {

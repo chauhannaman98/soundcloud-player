@@ -1,0 +1,32 @@
+#soundcloud-player .col-left   {
+    display: none;
+    width: 80%;
+}
+
+#soundcloud-player .col-right   {
+    padding-left: 0%;
+}
+
+#soundcloud-player .playlist-button	{
+    display: block;
+    margin: 5px 5px;
+	float: right;
+}
+
+@keyframes sideBarOpen {
+    from    {
+        left: -20%;
+    }
+    to  {
+        left: 0%;
+    }
+}
+
+@keyframes sideBarClose {
+    from    {
+        left: 0%;
+    }
+    to  {
+        left: -20%;
+    }
+}

@@ -6,15 +6,17 @@
     <title>SoundCloud Player</title>
     <link rel='stylesheet' href='styles/semantic.min.css'>
     <link rel='stylesheet' href='styles/main.css'>
-
+    <link rel='stylesheet' href='styles/mobile.css' media='(max-width: 600px)'>
 </head>
 <body id="soundcloud-player">
 
 <div class="ui container col">
-    <div class="col-left js-playlist">
+    <div class="col-left js-playlist" id="playlist">
         <div class="inner"></div>
     </div>
     <div class="col-right">
+        <img type="button" height="45px" width="45px" src="icons/hamburger.png" class="playlist-button" onclick="toggleSideBar()">
+        
         <div class="main">
             <div class="ui massive icon input">
                 <input type="text" placeholder="Search for a song or artist..." class="js-search input-search">
@@ -39,5 +41,6 @@
 <script src='javascript/semantic.min.js'></script>
 <script src="javascript/main.js"></script>
 <script src="javascript/reset.js"></script>
+<script src="javascript/sidebar.js"></script>
 </body>
 </html>

@@ -25,6 +25,8 @@ html, body {
 
 	min-width: 200px;
 	z-index: 1;
+
+	display: block;
 }
 
 #soundcloud-player .col-right {
@@ -80,4 +82,10 @@ html, body {
 	font-size: 20px;
 	background-color: #292929;
 	color: white;
+}
+
+#soundcloud-player .playlist-button	{
+	display: none;
+    margin: 5px 5px;
+	float: right;
 }

@@ -8,7 +8,7 @@ button.addEventListener('click', function(){
     var searchResults = document.querySelector(".js-search-results");
     searchResults.innerHTML = "";
     
-    SoundCouldAPI.getTrack(input.value);
+    SoundCouldAPI.getTrack(input);
 });
 
 document.querySelector(".js-search").addEventListener('keyup', function(e){
@@ -20,7 +20,7 @@ document.querySelector(".js-search").addEventListener('keyup', function(e){
         var searchResults = document.querySelector(".js-search-results");
         searchResults.innerHTML = "";
         
-        SoundCouldAPI.getTrack(input.value);
+        SoundCouldAPI.getTrack(input);
     }
 });
 
@@ -37,6 +37,7 @@ SoundCouldAPI.init = function() {
 SoundCouldAPI.init();
  
 SoundCouldAPI.getTrack = function(inputValue) {
+    console.log(inputValue);
     SC.get('/tracks', {
         q: inputValue
     }).then(function(tracks) {

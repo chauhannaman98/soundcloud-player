@@ -85,7 +85,15 @@ SoundCouldAPI.getEmbed = function(trackURL)  {
         console.log('oEmbed response: ', embed);
 
         var sideBar = document.querySelector('.js-playlist');
-        sideBar.innerHTML = embed.html;
+        
+        var box = document.createElement('div');
+        box.innerHTML = embed.html;
+        sideBar.insertBefore(box, sideBar.firstChild);
+        /* storing */
+        localStorage.setItem("key", sideBar.innerHTML);
 
     });
 }
+
+var sideBar = document.querySelector(".js-playlist");
+sideBar.innerHTML = localStorage.getItem("key");
